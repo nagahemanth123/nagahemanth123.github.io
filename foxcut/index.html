@@ -3,139 +3,503 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FoxCut — the video studio for brands</title>
-<meta name="description" content="FoxCut is a desktop video editor for brands, agencies and studios. Foxy, the built-in editor, plans and cuts reels, ads and films in each brand's own look.">
-<link rel="icon" type="image/png" href="favicon.png">
+<title>FoxCut: a desktop video studio for Mac and Windows, by Busy Fox</title>
+<meta name="description" content="FoxCut is a desktop video studio by Busy Fox for macOS and Windows. Talking clips captioned in ten styles, reels cut on the beat, wedding films in chapters, and Foxy, the editor built in. In early access.">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://work.busyfox.in/foxcut/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FoxCut">
+<meta property="og:url" content="https://work.busyfox.in/foxcut/">
+<meta property="og:title" content="FoxCut: a desktop video studio for Mac and Windows">
+<meta property="og:description" content="Talking clips captioned in ten styles, reels cut on the beat, wedding films in chapters, and Foxy, the editor built in. By Busy Fox, in early access.">
+<meta property="og:image" content="https://work.busyfox.in/foxcut/assets/shots/home-typed.jpg">
+<meta property="og:image:width" content="2880">
+<meta property="og:image:height" content="1800">
+<meta property="og:image:alt" content="The FoxCut Home screen with a typed request in the bar.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://work.busyfox.in/foxcut/assets/shots/home-typed.jpg">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FoxCut","applicationCategory":"MultimediaApplication","operatingSystem":"macOS 13 or later (Apple silicon), Windows","url":"https://work.busyfox.in/foxcut/","image":"https://work.busyfox.in/foxcut/assets/shots/home-typed.jpg","description":"A desktop video studio for Mac and Windows. In early access.","publisher":{"@type":"Organization","name":"Busy Fox","email":"admin@busyfox.in"}}
+</script>
 <style>
 :root{
-  --paper:#FAFAF8; --card:#FFFFFF; --ink:#141414; --ink-2:#4A4A46; --ink-3:#8A8A84;
-  --line:#E6E5E0; --fox:#E4501A;
+  --bg:#ffffff;
+  --bg-2:#f5f5f7;
+  --ink:#141414;
+  --ink-2:#424245;
+  --ink-3:#6e6e73;   /* 5.0:1 on white, 4.6:1 on grey */
+  --ink-4:#86868b;   /* large type only */
+  --line:#e2e2e6;
+  --fox:#e4501a;
+  --wrap:1200px;
+  --gut:clamp(16px,4vw,48px);
+  color-scheme:light;
 }
-*{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--paper);color:var(--ink);font:16px/1.55 Geist,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden}
+img,video{display:block;max-width:100%}
 a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-header{border-bottom:1px solid var(--line);background:var(--paper)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.01em;text-decoration:none}
-.brand img{width:32px;height:32px;border-radius:8px}
-.btn{display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.hero{padding:88px 0 72px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
-.eyebrow{font:500 13px/1 "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--fox);margin:0 0 20px}
-h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:0 0 22px;font-weight:700}
-.lede{font-size:19px;color:var(--ink-2);max-width:560px;margin:0 0 32px}
-.ctas{display:flex;gap:12px;flex-wrap:wrap}
-.meta{margin-top:22px;font-size:14px;color:var(--ink-3)}
-.tile{justify-self:center;width:min(300px,70vw);aspect-ratio:1;border-radius:28%;overflow:hidden;border:1px solid var(--line);background:var(--card)}
-.tile img{width:100%;height:100%;display:block}
-section{padding:72px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;line-height:1.1;margin:0 0 12px}
-.sub{color:var(--ink-2);margin:0 0 40px;max-width:620px;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.cell{background:var(--card);padding:28px}
-.cell h3{margin:0 0 8px;font-size:18px;letter-spacing:-.01em}
-.cell p{margin:0;color:var(--ink-2);font-size:15px}
-.num{font:500 13px/1 "Geist Mono",monospace;color:var(--fox);display:block;margin-bottom:16px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.steps div{border-top:2px solid var(--ink);padding-top:18px}
-.steps h3{margin:0 0 6px;font-size:18px}
-.steps p{margin:0;color:var(--ink-2);font-size:15px}
-.who{display:flex;flex-wrap:wrap;gap:10px}
-.who span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 16px;font-weight:500;font-size:15px}
-.cta-band{background:var(--ink);color:#fff;border-radius:16px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.cta-band h2{margin:0}
-.cta-band p{margin:8px 0 0;color:#BDBDB7}
-.cta-band .btn{background:var(--fox)}
-footer{padding:40px 0 56px;color:var(--ink-3);font-size:14px}
-footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;padding:56px 0 48px}
-  .tile{justify-self:start;width:120px}
-  .hero .tile{order:-1}
-  .grid,.steps{grid-template-columns:1fr}
-  .cta-band{padding:32px}
-  section{padding:56px 0}
+p,figure,blockquote{margin:0}
+p{text-wrap:pretty}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+.nw{white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:20;text-decoration:none;font-size:14px}
+.skip:focus{top:10px}
+
+.wrap{max-width:calc(var(--wrap) + var(--gut)*2);margin:0 auto;padding:0 var(--gut)}
+.wrap-wide{max-width:calc(1280px + var(--gut)*2);margin:0 auto;padding:0 var(--gut)}
+.band{padding:clamp(88px,10.5vw,152px) 0}
+.band.grey{background:var(--bg-2)}
+section[id]{scroll-margin-top:52px}
+.center{text-align:center}
+
+/* buttons and links */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 26px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:-.005em;white-space:nowrap;transition:background-color .2s}
+.btn:hover{background:#2e2e30}
+.btn.small{height:34px;padding:0 16px;font-size:14px}
+.more{display:inline-flex;align-items:center;gap:6px;font-size:17px;font-weight:500;text-decoration:none;color:var(--ink)}
+.more:hover{text-decoration:underline;text-underline-offset:4px}
+.more svg{width:8px;height:12px}
+
+/* header */
+.top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid rgba(20,20,20,.08)}
+.top .wrap{display:flex;align-items:center;gap:32px;height:52px}
+.mark{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:18px;letter-spacing:-.02em;margin-right:auto;white-space:nowrap}
+.mark img{width:30px;height:30px}
+.mark .by{font-size:14px;font-weight:400;letter-spacing:0;color:var(--ink-3);margin-left:2px}
+.top nav{display:flex;gap:28px}
+.top nav a{font-size:14px;color:var(--ink-2);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(40px,4.4vw,64px) 0 clamp(72px,8.5vw,120px);text-align:center}
+.hero .icon{width:72px;height:72px;margin:0 auto 12px}
+.hero h1{font-size:clamp(60px,7.9vw,112px);line-height:.95;letter-spacing:-.052em}
+.hero .line{font-size:clamp(25px,2.9vw,40px);font-weight:600;line-height:1.12;letter-spacing:-.032em;margin-top:14px}
+.hero .sub{font-size:clamp(17px,1.45vw,20px);color:var(--ink-2);max-width:700px;margin:18px auto 0;line-height:1.5}
+.actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 32px}
+.hero .actions{margin-top:30px}
+.status{margin-top:22px;font-size:14px;color:var(--ink-3)}
+.status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--fox);margin-right:9px;vertical-align:1px}
+.status b{font-weight:400;margin:0 9px}
+.status .g{white-space:nowrap}
+.status .g + .g::before{content:"\00b7";margin:0 9px 0 5px}
+.hero .shot{margin-top:clamp(44px,4.6vw,64px)}
+
+/* window frame around real screenshots */
+.window{margin:0;background:#f6f5f2;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(20,20,20,.09),0 1px 3px rgba(20,20,20,.05),0 36px 80px -36px rgba(20,20,20,.28)}
+.window .chrome{display:flex;align-items:center;gap:8px;height:30px;padding:0 14px}
+.window .chrome i{width:11px;height:11px;border-radius:50%;background:#dcdad5}
+.window img{width:100%;height:auto}
+.crop{position:relative;overflow:hidden}
+.crop img{position:absolute;top:0;left:0;max-width:none}
+.crop-camp{aspect-ratio:2000/346}
+.crop-camp img{width:100%}
+.caption{margin-top:18px;font-size:14px;line-height:1.5;color:var(--ink-3);text-align:center}
+
+/* section heads */
+.head{max-width:1080px;margin:0 auto;text-align:center}
+.head h2,.h2{font-size:clamp(38px,5.2vw,72px);line-height:1.03;letter-spacing:-.045em}
+.mute{color:var(--ink-4)}
+.lead{font-size:clamp(17px,1.5vw,21px);line-height:1.5;color:var(--ink-2);max-width:660px;margin:26px auto 0}
+
+/* columns of plain text */
+.cols{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:40px}
+.cols > div{border-top:1px solid var(--line);padding-top:22px}
+.cols h3{font-size:20px;line-height:1.25;letter-spacing:-.02em;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.cols p{font-size:16px;line-height:1.5;color:var(--ink-2)}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);border:1px solid #cfcfd4;border-radius:999px;padding:2px 8px 1px;line-height:1.4}
+
+/* talking clips: the ten styles */
+.styles{display:grid;grid-template-columns:auto minmax(0,600px);gap:clamp(48px,7vw,112px);justify-content:center;align-items:center;margin-top:clamp(56px,6.5vw,88px)}
+.phone{position:relative;width:clamp(250px,28vw,396px);aspect-ratio:9/16;padding:9px;border-radius:clamp(34px,3.4vw,48px);background:var(--ink);box-shadow:0 44px 70px -40px rgba(20,20,20,.5)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:clamp(26px,2.8vw,39px);background:#e8e2d8}
+.pp{position:absolute;right:22px;bottom:22px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(20,20,20,.66);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.pp:hover{background:rgba(20,20,20,.82)}
+.pp:focus-visible{outline:2px solid #fff;outline-offset:0;box-shadow:0 0 0 4px var(--ink)}
+.pp svg{width:14px;height:14px}
+.pp .i-play{display:none}
+.pp[data-state="paused"] .i-play{display:block}
+.pp[data-state="paused"] .i-pause{display:none}
+.picker .count{font-size:14px;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.picker .name{font-size:clamp(34px,3.6vw,52px);line-height:1.05;letter-spacing:-.04em;margin-top:10px}
+.picker .desc{font-size:18px;line-height:1.45;color:var(--ink-2);margin-top:12px;min-height:2.9em;max-width:520px}
+.thumbs{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 14px}
+.thumb{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;margin:0;width:100%;cursor:pointer;font:inherit;color:var(--ink-3);text-align:left}
+.thumb img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:10px;outline:2px solid transparent;outline-offset:3px;transition:outline-color .2s;background:#e8e2d8}
+.thumb span{display:block;margin-top:10px;font-size:13px;font-weight:500;line-height:1.25;letter-spacing:-.005em}
+.thumb:hover span,.thumb[aria-pressed="true"] span{color:var(--ink)}
+.thumb[aria-pressed="true"] img{outline-color:var(--ink)}
+.thumb:focus-visible{outline:none}
+.thumb:focus-visible img{outline-color:var(--ink);outline-style:dashed}
+.talk-facts{--n:4;margin-top:clamp(72px,8vw,112px)}
+.talk-shot{margin-top:clamp(72px,8vw,112px)}
+
+/* edit video */
+.edit-shot{margin-top:clamp(52px,6vw,80px)}
+.kinds{margin-top:clamp(52px,5.5vw,72px)}
+.kinds h3{font-size:24px}
+.kinds p{font-size:17px}
+.note{margin:clamp(36px,4.4vw,52px) auto 0;max-width:720px;text-align:center;font-size:17px;color:var(--ink-2)}
+
+/* foxy + home */
+.foxy{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(48px,8vw,128px);align-items:center}
+.foxy .lead{margin:24px 0 0;max-width:540px}
+.steps{list-style:none;padding:0;margin:36px 0 0;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);padding:18px 0 19px;border-bottom:1px solid var(--line)}
+.steps .n{font-size:14px;font-weight:500;line-height:1.75;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.steps h3{font-size:19px;line-height:1.3;letter-spacing:-.018em}
+.steps p{margin-top:3px;font-size:16px;color:var(--ink-2)}
+.steps q{display:block;margin-top:6px;font-size:16px;line-height:1.45;color:var(--ink)}
+.foxy-art{text-align:center}
+.foxy-art img{width:clamp(180px,18vw,250px);height:auto;margin:0 auto}
+.foxy-art blockquote{margin:26px auto 0;max-width:380px;font-size:clamp(21px,1.9vw,26px);line-height:1.3;letter-spacing:-.02em;font-weight:500}
+.foxy-art figcaption{margin-top:14px;font-size:14px;color:var(--ink-3)}
+
+/* brand work */
+.camp-shot{margin-top:clamp(52px,6vw,80px)}
+.work{--n:4;margin-top:clamp(52px,5.5vw,72px)}
+
+/* made for */
+.made{--n:4;margin-top:clamp(44px,5.5vw,64px)}
+.made h3{font-size:22px}
+
+/* early access */
+.access .icon{width:96px;height:96px;margin:0 auto 22px}
+.access .lead{margin-top:20px}
+.access .actions{margin-top:34px}
+.specs{--n:4;margin:clamp(64px,7.5vw,104px) 0 0;text-align:left}
+.specs dt{font-size:14px;color:var(--ink-3);margin-bottom:6px}
+.specs dd{margin:0;font-size:17px;font-weight:500;line-height:1.4}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:28px 0 40px;font-size:13px;color:var(--ink-3)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
+.foot a{color:var(--ink-2);text-decoration:none}
+.foot a:hover{text-decoration:underline;text-underline-offset:3px}
+.foot .mail{margin-left:auto}
+
+@media (max-width:1023px){
+  .cols,.work,.made,.specs,.talk-facts{--n:2}
+  .foxy{grid-template-columns:1fr}
+  .foxy-art{margin-top:8px}
+}
+@media (max-width:879px){
+  .top nav{display:none}
+}
+@media (max-width:767px){
+  body{font-size:16px}
+  .top .wrap{gap:16px}
+  .mark{font-size:17px}
+  .btn.small{height:32px;padding:0 14px;font-size:13px}
+  .hero .icon{width:64px;height:64px}
+  .hero .actions{flex-direction:column;gap:18px}
+  .status .g{display:block;line-height:1.7}
+  .status .g + .g::before{content:none}
+  .window{border-radius:10px}
+  .window .chrome{height:18px;gap:5px;padding:0 9px}
+  .window .chrome i{width:6px;height:6px}
+  .caption{margin-top:14px;font-size:13px}
+  .styles{grid-template-columns:1fr;justify-items:center;gap:36px}
+  .phone{width:min(290px,76vw);padding:7px;border-radius:38px}
+  .phone video{border-radius:31px}
+  .pp{right:18px;bottom:18px}
+  .picker{width:100%;text-align:center}
+  .picker .desc{margin-left:auto;margin-right:auto;font-size:17px}
+  .thumbs{gap:10px 8px;margin-top:24px}
+  .thumb img{border-radius:7px;outline-offset:2px}
+  .thumb span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .cols,.kinds,.work,.made,.talk-facts{--n:1;gap:28px}
+  .specs{--n:2;gap:28px 20px}
+  .steps li{grid-template-columns:36px minmax(0,1fr)}
+  .foot .mail{margin-left:0}
+  .foot .wrap{flex-direction:column}
+}
+@media (max-width:599px){
+  .mark .by{display:none}
+  /* on phones, show the part of each screen that matters, larger */
+  .crop-home{aspect-ratio:1220/500}
+  .crop-home img{width:163.93%;transform:translate(-22%,-28.8%)}
+  .crop-camp{aspect-ratio:1000/346}
+  .crop-camp img{width:200%}
+}
+@media (min-width:600px){
+  .crop-home img{position:static}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
 }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="./"><img src="icon.png" alt="">FoxCut</a>
-    <a class="btn ghost" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">Request access</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="FoxCut by Busy Fox, back to top"><img src="assets/icon.png" width="256" height="256" alt="">FoxCut<span class="by">by Busy Fox</span></a>
+    <nav aria-label="On this page">
+      <a href="#talking">Talking clips</a>
+      <a href="#edit">Edit video</a>
+      <a href="#foxy">Foxy</a>
+    </nav>
+    <a class="btn small" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">Request early access</a>
   </div>
 </header>
 
-<main class="wrap">
-  <div class="hero">
-    <div>
-      <p class="eyebrow">Desktop video studio · Early access</p>
-      <h1>The video studio that edits with you.</h1>
-      <p class="lede">FoxCut is a desktop video editor for brands, agencies and studios. Add your footage, approve the plan, and Foxy, FoxCut's built-in editor, cuts reels, ads and films in each brand's own look.</p>
-      <div class="ctas">
-        <a class="btn" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">Request early access</a>
-        <a class="btn ghost" href="#features">See what it does</a>
-      </div>
-      <p class="meta">macOS (Apple silicon) and Windows · Updates itself</p>
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="top-h">
+  <div class="wrap">
+    <img class="icon" src="assets/icon.png" width="256" height="256" alt="FoxCut app icon: Baby Foxy peeking over a wall">
+    <h1 id="top-h">FoxCut</h1>
+    <p class="line">A desktop video studio <span class="nw">for Mac and Windows.</span></p>
+    <p class="sub">Type what you want to make, or drop in your footage. FoxCut cuts talking clips, reels and wedding films, and exports them sized for each platform.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">Request early access</a>
+      <a class="more" href="#talking">See the ten caption styles <svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div class="tile"><img src="icon.png" alt="FoxCut app icon"></div>
+    <p class="status"><span class="g"><i class="dot" aria-hidden="true"></i>Early access<b aria-hidden="true">·</b>Updates itself</span> <span class="g">macOS 13 or later on Apple silicon<b aria-hidden="true">·</b>Windows</span></p>
   </div>
-
-  <section id="features">
-    <h2>One app, from footage to finished video.</h2>
-    <p class="sub">Everything a brand's video team needs sits in one place, and the repetitive parts run on their own.</p>
-    <div class="grid">
-      <div class="cell"><span class="num">01</span><h3>Foxy, your in-app editor</h3><p>Ask in plain words: "make a 30-second reel from today's shoot." Foxy plans the cut, shows you the plan first, then edits.</p></div>
-      <div class="cell"><span class="num">02</span><h3>Brand packs</h3><p>Each brand gets its own pack: colours, logo, fonts, product catalogue and templates. Pick a template, swap the product, export.</p></div>
-      <div class="cell"><span class="num">03</span><h3>Template store</h3><p>Templates download one at a time from the cloud, with live previews, and update quietly in the background.</p></div>
-      <div class="cell"><span class="num">04</span><h3>Talking clips</h3><p>A to-camera video becomes captioned reels in ten styles. Speech is transcribed on your own machine, in English and Telugu.</p></div>
-      <div class="cell"><span class="num">05</span><h3>A calm editor</h3><p>An instant preview, clip culling, colour, beat-matched first cuts and one simple timeline. Tools show up only when you need them.</p></div>
-      <div class="cell"><span class="num">06</span><h3>Approvals</h3><p>Drafts wait in an approvals queue, so nothing goes out until the brand has signed off.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>How it works</h2>
-    <p class="sub">Three steps. You stay in charge of every one.</p>
-    <div class="steps">
-      <div><h3>Add footage</h3><p>Drop in phone or camera clips. FoxCut makes fast proxies so even 4K footage plays smoothly.</p></div>
-      <div><h3>Approve the plan</h3><p>See every moment in order, with the music, before anything is cut.</p></div>
-      <div><h3>Export</h3><p>Get the sizes each platform needs: 9:16 reels, square posts and wide films.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Who uses FoxCut</h2>
-    <p class="sub">Teams that publish a lot of video for many brands, every week.</p>
-    <div class="who">
-      <span>Brands and distributors</span>
-      <span>Marketing agencies</span>
-      <span>Photo and video studios</span>
-      <span>Creators</span>
-    </div>
-  </section>
-
-  <section>
-    <div class="cta-band">
-      <div>
-        <h2>FoxCut is in early access.</h2>
-        <p>Tell us about your team and the videos you make. We'll set you up.</p>
+  <div class="wrap-wide">
+    <figure class="shot">
+      <div class="window">
+        <div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="crop crop-home">
+          <img src="assets/shots/home-typed.webp" width="2000" height="1250" fetchpriority="high" alt="The FoxCut Home screen. The bar reads: 30-second reel from today’s café shoot, warm look, captions in English. Below it: Drafts not exported, Ready to share, and 38 days to Christmas. Foxy sits in the corner with a tip.">
+        </div>
       </div>
-      <a class="btn" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">admin@busyfox.in</a>
+      <figcaption class="caption">Home. One bar for what you want to make; under it, drafts not exported, what’s ready to share, and a seasonal reminder.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band grey" id="talking" aria-labelledby="talking-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="talking-h">Talking clips. <span class="mute">A <span class="nw">to-camera</span> video in, a captioned reel out.</span></h2>
+      <p class="lead">Drop a talking video. FoxCut listens, cuts the pauses and the “umm”s, and shows your own face in all ten caption styles.</p>
     </div>
-  </section>
+
+    <div class="styles" data-styles>
+      <div class="phone">
+        <video muted playsinline preload="none" width="540" height="960" poster="assets/styles/style-bold-pop.webp" src="assets/clips/bold-pop.mp4" aria-label="Preview of the Bold Pop caption style"></video>
+        <button class="pp" type="button" data-state="paused" aria-label="Play preview">
+          <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/><rect x="8.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/></svg>
+          <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.8v10.4a.6.6 0 0 0 .9.5l8.2-5.2a.6.6 0 0 0 0-1L4.4 1.3a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <div class="picker">
+        <p class="count"><span data-num>01</span> / 10</p>
+        <div aria-live="polite">
+          <h3 class="name" data-name>Bold Pop</h3>
+          <p class="desc" data-desc>Big outlined captions. The word being said turns yellow.</p>
+        </div>
+        <ul class="thumbs" aria-label="Caption styles">
+          <li><button class="thumb" type="button" aria-pressed="true" data-key="bold-pop" data-desc="Big outlined captions. The word being said turns yellow."><img src="assets/styles/style-bold-pop.webp" width="360" height="640" loading="lazy" alt=""><span>Bold Pop</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="one-word" data-desc="One giant word at a time."><img src="assets/styles/style-one-word.webp" width="360" height="640" loading="lazy" alt=""><span>One Word</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="emoji-burst" data-desc="Clean bold captions with emoji stickers."><img src="assets/styles/style-emoji-burst.webp" width="360" height="640" loading="lazy" alt=""><span>Emoji Burst</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="hook-bar" data-desc="The hook pinned on top, with a progress bar."><img src="assets/styles/style-hook-bar.webp" width="360" height="640" loading="lazy" alt=""><span>Hook Bar</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="neon-glow" data-desc="A night-club grade with outlined neon words."><img src="assets/styles/style-neon-glow.webp" width="360" height="640" loading="lazy" alt=""><span>Neon Glow</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="word-boxes" data-desc="Every word lands in its own bright box as it is said."><img src="assets/styles/style-word-boxes.webp" width="360" height="640" loading="lazy" alt=""><span>Word Boxes</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="zoom-punch" data-desc="Jump-zooms and flashes on every new sentence."><img src="assets/styles/style-zoom-punch.webp" width="360" height="640" loading="lazy" alt=""><span>Zoom Punch</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="comic-pop" data-desc="Captions in a comic speech bubble, with a sticker on the key word."><img src="assets/styles/style-comic-pop.webp" width="360" height="640" loading="lazy" alt=""><span>Comic Pop</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="glitch-hype" data-desc="Heavy capitals with a split-colour edge."><img src="assets/styles/style-glitch-hype.webp" width="360" height="640" loading="lazy" alt=""><span>Glitch Hype</span></button></li>
+          <li><button class="thumb" type="button" aria-pressed="false" data-key="marker-note" data-desc="A white note card, with a marker line under the key words."><img src="assets/styles/style-marker-note.webp" width="360" height="640" loading="lazy" alt=""><span>Marker Note</span></button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cols talk-facts">
+      <div><h3>Upright or sideways</h3><p>Drop it in the way you filmed it.</p></div>
+      <div><h3>English or Telugu</h3><p>Pick the language, or let FoxCut detect it.</p></div>
+      <div><h3>On your computer</h3><p>Speech is transcribed on your own computer. The speech model downloads once.</p></div>
+      <div><h3>One reel or several</h3><p>One reel, or several reels from a long video.</p></div>
+    </div>
+
+    <figure class="talk-shot">
+      <div class="window">
+        <div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="assets/shots/talking.webp" width="2000" height="1250" loading="lazy" decoding="async" alt="The Talking clips screen in FoxCut: a drop area that reads Drop your talking video here, choices for One reel or Several reels from a long video, language Detect, English or Telugu, and the ten styles in a row below.">
+      </div>
+      <figcaption class="caption">The Talking clips screen. Hover a style to see it move; once your video is in, every style shows your own face.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band" id="edit" aria-labelledby="edit-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="edit-h">Edit video. <span class="mute">Footage in, a first cut out.</span></h2>
+      <p class="lead">Pick what you’re making and drop in every clip from the shoot. FoxCut keeps the best moments, leaves the rest in the bin, and hands you a first cut.</p>
+    </div>
+    <figure class="window edit-shot">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div>
+      <img src="assets/shots/edit.webp" width="2000" height="1250" loading="lazy" decoding="async" alt="The Edit screen in FoxCut. What are you making: Talking clip, Reel or Wedding film. Below: a footage drop area, music, transitions, length, and a Make the first cut button.">
+    </figure>
+    <div class="cols kinds">
+      <div><h3>Talking clip</h3><p>A to-camera video or podcast. Pauses, fillers and repeated lines come out; captions go in.</p></div>
+      <div><h3>Reel</h3><p>Many clips cut to music: the best moments, every cut on the beat.</p></div>
+      <div><h3>Wedding film</h3><p>A highlight film in chapters, cut to music, keeping the moments that matter.</p></div>
+    </div>
+    <p class="note">Choose the music, the transitions and the length: 15&nbsp;s, 30&nbsp;s or 1&nbsp;min. Fast proxies keep 4K footage smooth while you work.</p>
+  </div>
+</section>
+
+<section class="band grey" id="foxy" aria-labelledby="foxy-h">
+  <div class="wrap foxy">
+    <div>
+      <h2 class="h2" id="foxy-h">Type what you want to make.</h2>
+      <p class="lead">Home has one bar. Type a request and press Enter, and Foxy, the editor built into FoxCut, opens it. Ask in plain words.</p>
+      <ol class="steps">
+        <li><span class="n" aria-hidden="true">01</span><div><h3>You ask</h3><q>30-second reel from today’s café shoot, warm look, captions in English</q></div></li>
+        <li><span class="n" aria-hidden="true">02</span><div><h3>Foxy plans the cut</h3><p>and shows you the plan.</p></div></li>
+        <li><span class="n" aria-hidden="true">03</span><div><h3>Then it edits</h3><p>Only after you’ve seen the plan.</p></div></li>
+      </ol>
+    </div>
+    <figure class="foxy-art">
+      <picture>
+        <source media="(prefers-reduced-motion: reduce)" srcset="assets/foxy.webp">
+        <img src="assets/foxy-hello.webp" width="281" height="300" loading="lazy" decoding="async" alt="Baby Foxy, FoxCut’s small 3D fox, holding a clapperboard">
+      </picture>
+      <blockquote>“Hi! Type what you want to make up top and press Enter. I’ll open it for you.”</blockquote>
+      <figcaption>Foxy’s tip on the Home screen</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band" id="brands" aria-labelledby="brands-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="brands-h">For brand work. <span class="mute">Packs, Campaigns, Approvals and Exports.</span></h2>
+    </div>
+    <figure class="window camp-shot">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="crop crop-camp">
+        <img src="assets/shots/campaigns.webp" width="2000" height="1250" loading="lazy" decoding="async" alt="The top of the Campaigns screen in FoxCut: One brief, every format. A Start with a sentence bar marked beta, with Festive offer, Product launch and This week’s offer below it.">
+      </div>
+    </figure>
+    <div class="cols work">
+      <div><h3>Packs</h3><p>Each brand’s templates, fonts, logos and music in one pack. Templates download from the cloud one at a time, with previews, and update quietly.</p></div>
+      <div><h3>Campaigns <span class="tag">Beta</span></h3><p>One brief, every format. Fill the shared details once, then pick the formats: a festive offer, a product launch, this week’s offer.</p></div>
+      <div><h3>Approvals</h3><p>Drafts wait in an approvals queue, so nothing goes out before the brand signs off.</p></div>
+      <div><h3>Exports</h3><p>Exports run one at a time, so the computer stays quick. Sizes for each platform: 9:16 reels, square posts, wide films.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band grey" id="made-for" aria-labelledby="made-h">
+  <div class="wrap">
+    <h2 class="h2" id="made-h">Made for brands, <span class="mute">and the people who make their videos.</span></h2>
+    <div class="cols made">
+      <div><h3>Brands and distributors</h3><p>Every brand in its own pack. Drafts wait for sign-off.</p></div>
+      <div><h3>Marketing agencies</h3><p>One brief across every format, for each brand you run.</p></div>
+      <div><h3>Photo and video studios</h3><p>Wedding films in chapters, reels on the beat, 4K on fast proxies.</p></div>
+      <div><h3>Creators</h3><p>Talking clips in English or Telugu, captioned in ten styles.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band access center" id="access" aria-labelledby="access-h">
+  <div class="wrap">
+    <img class="icon" src="assets/icon.png" width="256" height="256" loading="lazy" alt="">
+    <h2 class="h2" id="access-h">FoxCut is in early access.</h2>
+    <p class="lead">Tell us what you make and who it’s for.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">Request early access</a>
+      <a class="more" href="mailto:admin@busyfox.in?subject=FoxCut%20early%20access">admin@busyfox.in</a>
+    </div>
+    <dl class="cols specs">
+      <div><dt>Mac</dt><dd>macOS 13 or later on Apple silicon</dd></div>
+      <div><dt>Windows</dt><dd>Windows desktop app</dd></div>
+      <div><dt>Updates</dt><dd>FoxCut updates itself</dd></div>
+      <div><dt>Speech</dt><dd>Transcribed on your computer</dd></div>
+    </dl>
+  </div>
+</section>
+
 </main>
 
-<footer class="wrap">
-  <div class="row">
+<footer class="foot">
+  <div class="wrap">
     <span>FoxCut is built by Busy Fox.</span>
-    <span>© 2026 Busy Fox Marketing · <a href="mailto:admin@busyfox.in">admin@busyfox.in</a></span>
+    <span>© 2026 Busy Fox Marketing</span>
+    <a class="mail" href="mailto:admin@busyfox.in">admin@busyfox.in</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-styles]');
+  if (!root) return;
+  var video = root.querySelector('video');
+  var pp = root.querySelector('.pp');
+  var thumbs = Array.prototype.slice.call(root.querySelectorAll('.thumb'));
+  var num = root.querySelector('[data-num]');
+  var nameEl = root.querySelector('[data-name]');
+  var descEl = root.querySelector('[data-desc]');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var index = 0, inView = false, userPaused = reduce, picked = false;
+
+  // The preview steps through the ten styles until someone picks one; then it loops that one.
+  video.loop = false;
+
+  function setButton(paused) {
+    pp.dataset.state = paused ? 'paused' : 'playing';
+    pp.setAttribute('aria-label', paused ? 'Play preview' : 'Pause preview');
+  }
+  function play() {
+    if (!inView || userPaused || document.hidden) return;
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { setButton(true); });
+    setButton(false);
+  }
+  function pause() { if (!video.paused) video.pause(); setButton(true); }
+  function show(i, autoplay) {
+    index = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[index];
+    var key = t.dataset.key, label = t.querySelector('span').textContent;
+    thumbs.forEach(function (b, j) { b.setAttribute('aria-pressed', j === index ? 'true' : 'false'); });
+    num.textContent = (index + 1 < 10 ? '0' : '') + (index + 1);
+    nameEl.textContent = label;
+    descEl.textContent = t.dataset.desc;
+    video.poster = 'assets/styles/style-' + key + '.webp';
+    video.src = 'assets/clips/' + key + '.mp4';
+    video.setAttribute('aria-label', 'Preview of the ' + label + ' caption style');
+    video.load();
+    if (autoplay) play(); else setButton(true);
+  }
+
+  thumbs.forEach(function (t, i) {
+    t.addEventListener('click', function () {
+      picked = true; video.loop = true;
+      if (!reduce) userPaused = false;
+      show(i, !reduce);
+    });
+  });
+  video.addEventListener('ended', function () { if (!picked) show(index + 1, true); });
+  pp.addEventListener('click', function () {
+    if (video.paused) { userPaused = false; inView = true; play(); }
+    else { userPaused = true; pause(); }
+  });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) { if (!video.paused) video.pause(); } else play(); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        inView = e.isIntersecting;
+        if (inView) play(); else if (!video.paused) video.pause();
+      });
+    }, { threshold: 0.45 }).observe(video);
+  }
+})();
+</script>
 </body>
 </html>
